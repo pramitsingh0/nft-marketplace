@@ -1,0 +1,5 @@
+.venv
+main_market/main_market/__pycache__
+node_modules
+.env
+package-lock.json
