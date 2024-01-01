@@ -3,3 +3,5 @@ main_market/main_market/__pycache__
 node_modules
 .env
 package-lock.json
+main_market/products/__pycache__
+main_market/products/migrations/__pycache__
