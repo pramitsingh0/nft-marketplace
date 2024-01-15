@@ -9,13 +9,19 @@ from .models import Product
 #
 #
 
+def product_listing_view(request):
+    products = Product.objects.all()
+    return render(request, "marketplace/products/listing.html", {
+        "product_listing": products
+    })
+
 def create_product_view(request):
     return render(request, "marketplace/products/create.html")
 
 
 def save_product(request):
     if request.method != "POST":
-        return JsonResponse({"error": "Method Error! Only POST request allowed"})
+        return JsonResponse({"error": "Method Error! Only POST request allowed"}, status=500)
     prod_name = request.POST.get("name")
     prod_handler = request.POST.get("handler")
     price = request.POST.get("price")

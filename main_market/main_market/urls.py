@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import home_view
 
+app_name = "market"
 urlpatterns = [
     path("products/", include("products.urls")),
-    path("", home_view),
+    path("", home_view, name="home"),
     path("admin/", admin.site.urls),
 ]

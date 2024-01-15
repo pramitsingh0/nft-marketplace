@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 
 
+
 class Product(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE
@@ -26,3 +27,5 @@ class Product(models.Model):
             self.stripe_price = int(self.price * 100)
             self.price_changed_timestamp = timezone.now()
         super().save(*args, **kwargs)
+    def __str__(self):
+        return str(self.name)
